@@ -1,0 +1,497 @@
+/* ── Sub-nav ────────────────────────────────── */
+.subNav {
+  background: var(--canvas);
+  box-shadow: inset 0 -1px 0 var(--hairline-soft);
+  position: sticky;
+  top: 92px;
+  z-index: 10;
+}
+
+.subNavInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  gap: var(--sp-xl);
+}
+
+.weekNav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+.weekLabel {
+  font-size: 15px;
+  font-weight: 500;
+  min-width: 220px;
+  text-align: center;
+}
+
+.subNavRight {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+.planAheadBtn {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mute);
+  transition: color 0.15s;
+}
+.planAheadBtn:hover { color: var(--ink); }
+
+/* ── Page ───────────────────────────────────── */
+.root { min-height: 100vh; }
+
+.page {
+  padding: var(--sp-section) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xxl);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 0.9;
+  margin-bottom: 0;
+}
+
+/* ── Day tabs ───────────────────────────────── */
+.dayTabs {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--sp-sm);
+}
+
+.dayTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--sp-md) var(--sp-sm);
+  border: 1px solid var(--hairline);
+  background: var(--canvas);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  border-radius: var(--rounded-md);
+}
+.dayTab:hover { border-color: var(--ash); background: var(--soft-cloud); }
+
+.dayTabActive {
+  border-color: var(--purple-rich) !important;
+  background: var(--gradient-purple) !important;
+}
+.dayTabActive .dayTabName  { color: var(--canvas); }
+.dayTabActive .dayTabKcal  { color: rgba(255,255,255,0.65); }
+.dayTabActive .dayTabEmpty { color: rgba(255,255,255,0.45); }
+
+.dayTabFilled { border-color: var(--ash); }
+
+.dayTabName {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.dayTabKcal {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--mute);
+}
+
+.dayTabEmpty {
+  font-size: 11px;
+  color: var(--stone);
+}
+
+/* ── Meal picker panel ──────────────────────── */
+.picker {
+  background: var(--soft-cloud);
+  padding: var(--sp-xl);
+  border: 1px solid var(--hairline);
+}
+
+.pickerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-xl);
+}
+
+.pickerTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.keepBtn {
+  background: var(--gradient-purple);
+  color: var(--canvas);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px var(--sp-xl);
+  border-radius: var(--rounded-full);
+  letter-spacing: 0.3px;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+.keepBtn:hover { opacity: 0.82; }
+
+.clearBtns {
+  display: flex;
+  gap: var(--sp-sm);
+  flex-wrap: wrap;
+}
+
+.clearDayBtn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--stone);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.clearDayBtn:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.keptBadge {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  padding: 8px var(--sp-lg);
+  border-radius: var(--rounded-full);
+}
+
+.pickerEmpty {
+  font-size: 14px;
+  color: var(--mute);
+}
+.pickerEmpty a { color: var(--ink); font-weight: 500; text-decoration: underline; }
+
+.pickerCategories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.pickerCat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.pickerCatHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: var(--sp-sm);
+}
+
+.pickerCatLabel {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.clearSlot {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--stone);
+  transition: color 0.15s;
+}
+.clearSlot:hover { color: var(--ink); }
+
+.pickerMeals {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-xs);
+}
+
+.mealOption {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: 6px var(--sp-sm);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: left;
+  min-width: 0;
+}
+.mealOption:hover { border-color: var(--ink); background: var(--soft-cloud); }
+
+.mealOptionActive {
+  border-color: var(--purple-rich) !important;
+  background: var(--gradient-purple) !important;
+}
+.mealOptionActive .mealOptName { color: var(--canvas); }
+.mealOptionActive .mealOptSub  { color: rgba(255,255,255,0.6); }
+.mealOptionActive .mealOptCheck { color: var(--canvas); }
+.mealOptionActive .mealOptInitial { color: rgba(255,255,255,0.7); }
+
+.mealOptThumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--soft-cloud);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mealOptImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mealOptInitial {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.mealOptInfo { flex: 1; min-width: 0; }
+
+.mealOptName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mealOptSub {
+  font-size: 11px;
+  color: var(--mute);
+  margin-top: 1px;
+}
+
+.mealOptCheck {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--stone);
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+/* ── Split layout: picker + grid side by side ── */
+.splitLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xxl);
+}
+
+.splitLayoutActive {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--sp-xl);
+}
+
+.splitLayoutActive .picker {
+  width: 460px;
+  flex-shrink: 0;
+  position: sticky;
+  top: calc(92px + 52px + var(--sp-section));
+}
+
+.splitLayoutActive .gridWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Week overview grid ─────────────────────── */
+.gridWrap { overflow-x: auto; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 72px repeat(5, 1fr);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 16px;
+  overflow: hidden;
+  min-width: 600px;
+}
+
+.corner {
+  background: var(--soft-cloud);
+  border-bottom: 1px solid var(--hairline-soft);
+}
+
+/* Meal-type column headers */
+.typeHeader {
+  background: var(--soft-cloud);
+  padding: var(--sp-md) var(--sp-sm);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ash);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+
+/* Day row label */
+.dayLabel {
+  background: var(--soft-cloud);
+  padding: var(--sp-md) var(--sp-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid var(--hairline-soft);
+  border-right: 1px solid var(--hairline-soft);
+  transition: background 0.15s;
+}
+.dayLabel:hover { background: var(--hairline-soft); }
+
+.dayLabelActive { background: var(--gradient-purple) !important; }
+.dayLabelActive .dayLabelName { color: var(--canvas); }
+.dayLabelActive .dayLabelKcal { color: rgba(255,255,255,0.55); }
+
+.dayLabelName {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.dayLabelKcal {
+  font-size: 10px;
+  color: var(--mute);
+  white-space: nowrap;
+}
+
+/* Cells — no vertical separators, only row dividers */
+.cell {
+  background: var(--canvas);
+  min-height: 72px;
+  cursor: pointer;
+  transition: background 0.1s;
+  padding: var(--sp-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+
+.cellEmpty:hover  { background: var(--soft-cloud); }
+.cellSelected     { background: rgba(124,58,237,0.04) !important; }
+
+.cellHint {
+  font-size: 18px;
+  color: var(--hairline);
+  transition: color 0.15s;
+}
+.cell:hover .cellHint { color: var(--stone); }
+
+.slotCard {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+  padding: 2px;
+}
+
+.slotCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--purple-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slotPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slotInitial {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--purple-rich);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.slotInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.slotName {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.slotKcal {
+  font-size: 10px;
+  color: var(--mute);
+  margin-top: 1px;
+}
+
+.makeBtn {
+  margin-top: var(--sp-xs);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--purple-rich);
+  background: var(--purple-light);
+  border: none;
+  border-radius: 999px;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.makeBtn:hover {
+  background: var(--purple-rich);
+  color: var(--canvas);
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 960px) {
+  .dayTabs { grid-template-columns: repeat(4, 1fr); }
+  .pickerMeals { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+@media (max-width: 600px) {
+  .dayTabs { grid-template-columns: repeat(2, 1fr); }
+  .subNavRight .planAheadBtn { display: none; }
+}

@@ -1,0 +1,244 @@
+/* ── Sub-nav ────────────────────────────────── */
+.subNav {
+  background: var(--canvas);
+  box-shadow: inset 0 -1px 0 var(--hairline-soft);
+}
+
+.subNavInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-xl);
+  height: 52px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mute);
+}
+
+.filters {
+  display: flex;
+  gap: var(--sp-sm);
+  flex-wrap: wrap;
+}
+
+/* ── Page ───────────────────────────────────── */
+.page {
+  padding: var(--sp-section) 0;
+}
+
+/* ── Date group ─────────────────────────────── */
+.dateGroup {
+  margin-bottom: var(--sp-section);
+}
+
+.dateHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: var(--sp-lg);
+  border-bottom: 2px solid var(--purple-mid);
+  margin-bottom: var(--sp-xl);
+}
+
+.dateLabel {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.dateTotals {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple-mid);
+}
+
+/* ── Card grid ──────────────────────────────── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--sp-xl);
+}
+
+/* ── Rounded card ───────────────────────────── */
+.card {
+  position: relative;
+  background: var(--canvas);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 20px;
+  padding: var(--sp-xl) var(--sp-lg) var(--sp-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transform: translateY(-2px);
+}
+
+/* Circular photo */
+.cardCircle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--purple-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-md);
+}
+
+.cardPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardInitial {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--purple-rich);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Card content */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.typeTag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--purple-rich);
+  background: var(--purple-light);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.cardName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+.cardSub {
+  font-size: 12px;
+  color: var(--mute);
+}
+
+/* Delete button */
+.delBtn {
+  position: absolute;
+  top: var(--sp-sm);
+  right: var(--sp-sm);
+  width: 26px;
+  height: 26px;
+  border-radius: var(--rounded-full);
+  background: var(--soft-cloud);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s;
+  color: var(--ink);
+}
+.card:hover .delBtn { opacity: 1; }
+
+/* ── Macros row ─────────────────────────────── */
+.macros {
+  display: flex;
+  gap: var(--sp-md);
+  margin-top: var(--sp-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.macroChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.macroVal {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.macroLabel {
+  font-size: 10px;
+  color: var(--stone);
+  margin-top: 2px;
+}
+
+/* ── Catalog section ────────────────────────── */
+.catalogSection { margin-top: var(--sp-section); }
+
+.catalogHeader { margin-bottom: var(--sp-xl); }
+
+.catalogTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  border-bottom: 2px solid var(--purple-mid);
+  padding-bottom: var(--sp-sm);
+  display: inline-block;
+}
+
+.catalogCard { opacity: 0.75; }
+.catalogCard:hover { opacity: 1; }
+
+.logBtn {
+  display: inline-block;
+  margin-top: var(--sp-sm);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--purple-rich);
+  background: var(--purple-light);
+  border-radius: 999px;
+  padding: 4px 14px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.logBtn:hover {
+  background: var(--purple-rich);
+  color: var(--canvas);
+}
+
+/* ── Empty / loading ────────────────────────── */
+.emptyState { padding: var(--sp-section) 0; }
+
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  margin-bottom: var(--sp-md);
+}
+
+.muted { color: var(--mute); font-size: 14px; }
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 960px)  { .cardGrid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); } }
+@media (max-width: 600px)  { .cardGrid { grid-template-columns: repeat(2, 1fr); } .filters { flex-wrap: wrap; } }

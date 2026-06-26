@@ -1,0 +1,9 @@
+{
+  "name": "peak",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && node src/index.js",
+    "install:all": "cd frontend && npm install && cd ../backend && npm install"
+  }
+}

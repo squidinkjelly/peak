@@ -1,0 +1,89 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ── Utility bar ─────────────────────────── */
+.utilityBar {
+  background: var(--gradient-purple);
+  height: 36px;
+}
+
+.utilityInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+}
+
+.utilityLinks {
+  display: flex;
+  gap: var(--sp-xl);
+}
+
+/* ── Primary nav ─────────────────────────── */
+.nav {
+  background: var(--canvas);
+  box-shadow: inset 0 -1px 0 var(--hairline-soft);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xxl);
+  height: 56px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 3px;
+  color: var(--ink);
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.logo:hover { opacity: 0.7; }
+
+.links {
+  display: flex;
+  gap: 0;
+}
+
+.links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--mute);
+  padding: 0 var(--sp-lg);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s;
+}
+
+.links a:hover { color: var(--ink); }
+
+.links a.active {
+  color: var(--purple-rich);
+  border-bottom-color: var(--purple-mid);
+}
+
+.testerBtn {
+  margin-left: auto;
+  background: var(--gradient-purple);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 var(--sp-lg);
+  height: 32px;
+  border-radius: var(--rounded-full);
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+  letter-spacing: 0.3px;
+}
+.testerBtn:hover { opacity: 0.82; }
+.testerBtn:disabled { opacity: 0.4; cursor: not-allowed; }

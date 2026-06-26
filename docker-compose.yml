@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    volumes:
+      - peak_data:/app/data
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DATA_DIR: /app/data
+      APP_PASSWORD: ${APP_PASSWORD:-}   # set in a .env file alongside docker-compose.yml
+
+volumes:
+  peak_data:

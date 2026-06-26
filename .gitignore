@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Database and user data
+backend/data/
+
+# Build output
+frontend/dist/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+
+# Claude local settings
+.claude/settings.local.json
+.claude/launch.json
