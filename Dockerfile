@@ -7,10 +7,10 @@ RUN npm run build
 
 FROM node:20-alpine
 RUN apk add --no-cache python3 make g++
-WORKDIR /app
+WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm ci --omit=dev
 COPY backend/ ./
-COPY --from=frontend-build /app/frontend/dist ./frontend/dist
+COPY --from=frontend-build /app/frontend/dist /app/frontend/dist
 EXPOSE 3001
 CMD ["node", "src/index.js"]
