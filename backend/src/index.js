@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
   }));
   // Everything else (including index.html) must never be cached so updates load immediately
   app.use(express.static(frontendBuild, { maxAge: 0, etag: false }));
-  app.get('*', (req, res) => {
+  app.get('/{*path}', (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
     res.sendFile(path.join(frontendBuild, 'index.html'));
   });
