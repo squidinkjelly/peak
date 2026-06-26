@@ -22,8 +22,15 @@ app.use('/api/plans',     require('./routes/plans'));
 app.use('/api/seed',      require('./routes/seed'));
 app.use('/uploads',       express.static(UPLOADS_DIR));
 
-const frontendBuild = path.join(__dirname, '../../frontend/dist');
-if (require('fs').existsSync(frontendBuild)) {
+const fs = require('fs');
+const CANDIDATE_PATHS = [
+  '/app/frontend/dist',
+  path.join(__dirname, '../../frontend/dist'),
+  path.join(__dirname, '../../../frontend/dist'),
+];
+const frontendBuild = CANDIDATE_PATHS.find(p => fs.existsSync(p));
+console.log('Frontend build path:', frontendBuild ?? 'NOT FOUND', '| __dirname:', __dirname);
+if (frontendBuild) {
   app.use('/assets', express.static(path.join(frontendBuild, 'assets'), {
     maxAge: '1y', immutable: true,
   }));
