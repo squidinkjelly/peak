@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../api';
 import styles from './WeeklyPlan.module.css';
@@ -276,9 +276,8 @@ export default function WeeklyPlan() {
 
               {/* Day rows */}
               {DAYS.map((day, di) => (
-                <>
+                <Fragment key={di}>
                   <button
-                    key={`day-${di}`}
                     className={`${styles.dayLabel} ${selectedDay === di ? styles.dayLabelActive : ''}`}
                     onClick={() => setSelectedDay(selectedDay === di ? null : di)}
                   >
@@ -322,7 +321,7 @@ export default function WeeklyPlan() {
                       </div>
                     );
                   })}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>
