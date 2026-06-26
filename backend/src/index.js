@@ -22,14 +22,11 @@ app.use('/api/plans',     require('./routes/plans'));
 app.use('/api/seed',      require('./routes/seed'));
 app.use('/uploads',       express.static(UPLOADS_DIR));
 
-if (process.env.NODE_ENV === 'production') {
-  const frontendBuild = path.join(__dirname, '../../frontend/dist');
-  // Hashed assets (JS/CSS with content hashes in filenames) can be cached for a year
+const frontendBuild = path.join(__dirname, '../../frontend/dist');
+if (require('fs').existsSync(frontendBuild)) {
   app.use('/assets', express.static(path.join(frontendBuild, 'assets'), {
-    maxAge: '1y',
-    immutable: true,
+    maxAge: '1y', immutable: true,
   }));
-  // Everything else (including index.html) must never be cached so updates load immediately
   app.use(express.static(frontendBuild, { maxAge: 0, etag: false }));
   app.get('/{*path}', (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
